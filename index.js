@@ -44,8 +44,13 @@ var editFile = function(file, options) {
             else if(valueType === 'append'){
                node.appendChild(domParser.parseFromString(value));
             }
-            else if(node.nodeType == ATTRIBUTE_NODE){                     
-               node.value = value;
+            else if(node.nodeType == ATTRIBUTE_NODE){    
+               if(valueType === 'remove'){
+                  var ownerElement = node.ownerElement;
+                  ownerElement.removeAttributeNode(node);
+               } else {
+                  node.value = value;
+               }
             } else {                     
                node.textContent = value;
             }
