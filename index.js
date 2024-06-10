@@ -28,7 +28,7 @@ var editFile = function(file, options) {
       var nodes = select(query, doc);
       nodes.forEach(function(node){
         var value = getValue(node);
-        gutil.log('setting value of "' + query + '" to "' + value +'"');
+        // gutil.log('setting value of "' + query + '" to "' + value +'"');
         if(valueType === 'element') {
           node.textContent = '';
           while(node.firstChild){
